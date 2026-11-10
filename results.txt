@@ -1,0 +1,70 @@
+Q0: Sanity check - how many rows, and the overall average?
+total_students  overall_avg
+--------------  -----------
+1000            67.77      
+
+Q1: Do students who completed the test prep course score higher?
+test_prep  students  avg_math  avg_reading  avg_writing  avg_overall
+---------  --------  --------  -----------  -----------  -----------
+completed  358       69.7      73.9         74.4         72.7       
+none       642       64.1      66.5         64.5         65.0       
+
+Q2: Does parental education affect scores?
+parent_education    students  avg_overall
+------------------  --------  -----------
+master's degree     59        73.6       
+bachelor's degree   118       71.9       
+associate's degree  222       69.6       
+some college        226       68.5       
+some high school    179       65.1       
+high school         196       63.1       
+
+Q3: Grade bands (CASE) - how many students fall in each band?
+grade_band  students
+----------  --------
+A (90+)     52      
+B (80-89)   146     
+C (70-79)   261     
+D (60-69)   256     
+F (<60)     285     
+
+Q4: Grade bands split by test prep (does prep shift students into higher bands?)
+test_prep  a_or_b  failing  students
+---------  ------  -------  --------
+completed  107     60       358     
+none       91      225      642     
+
+Q5: Top 10 students by overall average
+id   gender  parent_education    test_prep  math_score  reading_score  writing_score  avg_score
+---  ------  ------------------  ---------  ----------  -------------  -------------  ---------
+459  female  bachelor's degree   none       100         100            100            100.0    
+917  male    bachelor's degree   completed  100         100            100            100.0    
+963  female  associate's degree  none       100         100            100            100.0    
+115  female  bachelor's degree   completed  99          100            100            99.67    
+180  female  some high school    completed  97          100            100            99.0     
+713  female  some college        none       98          100            99             99.0     
+166  female  bachelor's degree   completed  96          100            100            98.67    
+626  male    some college        completed  100         97             99             98.67    
+150  male    associate's degree  completed  100         100            93             97.67    
+686  female  master's degree     completed  94          99             100            97.67    
+
+Q6: Filtering (WHERE) - prep students who scored 90+ in every subject
+id   gender  parent_education    math_score  reading_score  writing_score
+---  ------  ------------------  ----------  -------------  -------------
+917  male    bachelor's degree   100         100            100          
+115  female  bachelor's degree   99          100            100          
+180  female  some high school    97          100            100          
+166  female  bachelor's degree   96          100            100          
+626  male    some college        100         97             99           
+150  male    associate's degree  100         100            93           
+686  female  master's degree     94          99             100          
+904  female  bachelor's degree   93          100            100          
+567  female  bachelor's degree   92          100            100          
+595  female  bachelor's degree   92          100            99           
+718  female  associate's degree  96          96             99           
+547  female  some high school    92          100            97           
+887  female  associate's degree  93          100            95           
+563  male    bachelor's degree   96          90             92           
+920  male    some college        91          96             91           
+613  male    bachelor's degree   94          90             91           
+475  female  associate's degree  90          90             91           
